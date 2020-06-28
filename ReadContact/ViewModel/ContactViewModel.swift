@@ -43,14 +43,12 @@ class ContactViewModel {
         case .denied:
             completionHandler(false)
             break
-        //			showSettingsAlert(completionHandler)
         case .restricted, .notDetermined:
             contactStore.requestAccess(for: .contacts) { granted, error in
                 if granted {
                     completionHandler(true)
                 } else {
                     completionHandler(false)
-                    
                 }
             }
             break
@@ -59,10 +57,10 @@ class ContactViewModel {
     
     func fetchContact(completion: @escaping (_ isSuccess: Bool) -> Void) {
         
-        //		var contacts = [CNContact]()
         var myContacts = [MyContact]()
         
         
+        //Set key which we want to fetch
         let keys = [
             CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
             CNContactEmailAddressesKey as CNKeyDescriptor,
@@ -109,12 +107,7 @@ class ContactViewModel {
         }
     }
 }
-enum SyncType {
-    case isInvited
-    case askFriend
-    case contactManage
-    
-}
+ 
 // MARK: Public Methods
 extension ContactViewModel {
     

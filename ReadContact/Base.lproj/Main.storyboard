@@ -26,11 +26,25 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud1-GH-YpW">
+                                                <rect key="frame" x="352" y="0.0" width="62" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="62" id="w3J-Ku-DLt"/>
+                                                </constraints>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="didTapDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zl8-bR-7Q2"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="ud1-GH-YpW" firstAttribute="top" secondItem="4BT-qd-JQU" secondAttribute="top" id="5wG-hk-TBJ"/>
+                                            <constraint firstItem="ud1-GH-YpW" firstAttribute="centerY" secondItem="4BT-qd-JQU" secondAttribute="centerY" id="79g-EF-mXW"/>
                                             <constraint firstAttribute="height" constant="45" id="FHZ-Fd-S6x"/>
                                             <constraint firstItem="etU-CF-R4N" firstAttribute="centerY" secondItem="4BT-qd-JQU" secondAttribute="centerY" id="N1A-XN-KpN"/>
                                             <constraint firstItem="etU-CF-R4N" firstAttribute="centerX" secondItem="4BT-qd-JQU" secondAttribute="centerX" id="Xsb-OX-c5A"/>
+                                            <constraint firstAttribute="bottom" secondItem="ud1-GH-YpW" secondAttribute="bottom" id="sKy-m2-qpf"/>
+                                            <constraint firstAttribute="trailing" secondItem="ud1-GH-YpW" secondAttribute="trailing" id="x1g-Pi-YgE"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MM0-BJ-u1c">

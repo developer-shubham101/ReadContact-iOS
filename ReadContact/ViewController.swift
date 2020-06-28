@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ReadContact
 //
-//  Created by Ajit Jain on 28/06/20.
+//  Created by Shubham Sharma on 28/06/20.
 //  Copyright © 2020 Newdevpoint. All rights reserved.
 //
 
@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionFlow: UICollectionViewFlowLayout!
-     
+    
+    
+    //Create ViewModel
     fileprivate var viewModel = ContactViewModel()
     
     override func viewDidLoad() {
@@ -24,8 +26,12 @@ class ViewController: UIViewController {
         self.searchField.addTarget(self, action: #selector(updateSearch(sender:)), for: .editingChanged)
         
         initTable()
+        
+        /// Ask Request for contact
         viewModel.requestAccess { (response) in
+            //If user give access for contact
             if (response){
+                //Then fetch contact from your phone bool
                 self.viewModel.fetchContact(completion: { (isSuccess) in
                     if isSuccess  {
                         DispatchQueue.main.async {
@@ -41,15 +47,14 @@ class ViewController: UIViewController {
                 }
             }
         }
-        //        IQKeyboardManager.shared().disabledToolbarClasses.add(ContactViewController.self)
-        //NotificationCenter.default.addObserver(self, selector: #selector( keyboardFrameChangeNotification(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector( keyboardFrameChangeNotification(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        //        fetchContact()
+//        IQKeyboardManager.shared().disabledToolbarClasses.add(ContactViewController.self)
+//        NotificationCenter.default.addObserver(self, selector: #selector( keyboardFrameChangeNotification(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector( keyboardFrameChangeNotification(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+ 
     }
     
     @IBAction func didTapDone(_ sender: UIButton) {
         print(viewModel.selectedList)
-        
     }
  
     fileprivate func initTable() {
